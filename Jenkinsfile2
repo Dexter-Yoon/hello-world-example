@@ -1,0 +1,42 @@
+node {
+// 1번 Stage
+stage('1. Clone sources with Git Plugin') {
+	def gitValues = git credentialsId: 'JenkinsGithubUser', url:'https://github.com/Dexter-Yoon/hello-world-example.git'
+	echo 'GIT_COMMIT : ${gitValues.GIT_COMMIT}'
+	echo 'GIT_PREVIOUS_COMMIT : ${gitValues.GIT_PREVIOUS_COMMIT}'
+	echo 'GIT_PREVIOUS_SUCCESSFUL_COMMIT : ${gitValues.GIT_PREVIOUS_SUCCESSFUL_COMMIT}'
+	echo 'GIT_BRANCH : ${gitValues.GIT_BRANCH}'
+	echo 'GIT_LOCAL_BRANCH : ${gitValues.GIT_LOCAL_BRANCH}'
+	echo 'GIT_COGIT_URLMMIT : ${gitValues.GIT_URL}'
+	echo 'GIT_COMMITTER_NAME : ${gitValues.GIT_COMMITTER_NAME}'
+	echo 'GIT_AUTHOR_NAME : ${gitValues.GIT_AUTHOR_NAME}'
+	echo 'GIT_COMMITTER_EMAIL : ${gitValues.GIT_COMMITTER_EMAIL}'
+	echo 'GIT_AUTHOR_EMAIL : ${gitValues.GIT_AUTHOR_EMAIL}'
+}
+// 2번 Stage
+stage('2. Clone sources with SCM Step Plugin') {
+	def gitValues = checkout scm
+	echo 'GIT_COMMIT : ${gitValues.GIT_COMMIT}'
+	echo 'GIT_PREVIOUS_COMMIT : ${gitValues.GIT_PREVIOUS_COMMIT}'
+	echo 'GIT_PREVIOUS_SUCCESSFUL_COMMIT : ${gitValues.GIT_PREVIOUS_SUCCESSFUL_COMMIT}'
+	echo 'GIT_BRANCH : ${gitValues.GIT_BRANCH}'
+	echo 'GIT_LOCAL_BRANCH : ${gitValues.GIT_LOCAL_BRANCH}'
+	echo 'GIT_COGIT_URLMMIT : ${gitValues.GIT_URL}'
+	echo 'GIT_COMMITTER_NAME : ${gitValues.GIT_COMMITTER_NAME}'
+	echo 'GIT_AUTHOR_NAME : ${gitValues.GIT_AUTHOR_NAME}'
+	echo 'GIT_COMMITTER_EMAIL : ${gitValues.GIT_COMMITTER_EMAIL}'
+	echo 'GIT_AUTHOR_EMAIL : ${gitValues.GIT_AUTHOR_EMAIL}'
+}
+// 3번 Stage
+stage('Build') {
+	echo 'Building...'
+}
+// 4번 Stage
+stage('Test') {
+	echo 'Testing...'
+}
+// 5번 Stage
+stage('Deploy') {
+	echo 'Deploying...'
+}
+}
