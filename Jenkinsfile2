@@ -40,7 +40,7 @@ stage('2. Clone sources with SCM Step Plugin') {
 }
 
 stage 'Building nginx Container for Docker Hub'
-docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
+docker.withRegistry('https://hub.docker.com', 'DockerHub') {
     
     // Set up the container to build
     maintainer_name = "jayjohnson"
