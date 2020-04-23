@@ -55,7 +55,8 @@ docker.withRegistry('', 'DockerHub') {
     // add more tests
     
     stage "Pushing"
-    container.push()
+    //container.push()
+    container.pull()
     
     currentBuild.result = 'SUCCESS'
 }
