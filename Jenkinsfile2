@@ -45,11 +45,13 @@ docker.withRegistry('', 'DockerHub') {
     // Set up the container to build
     maintainer_name = "Dexter-Yoon" git 사용자 계정
     container_name = "hello-world-example"
+    
  
     //stage "Building Container"
-    //echo "Building nginx with docker.build(${maintainer_name}/${container_name}:${build_tag})"
-    //container = docker.build("${container_name}:${build_tag}", 'nginx')
-    container = 'nginx'
+    echo "Building nginx with docker.build(${maintainer_name}/${container_name}:${build_tag})"
+    container = docker.build("${container_name}:'0.1'", 'nginx')
+    //container = 'nginx'
+    
     // add more tests
     
     stage "Pushing"
