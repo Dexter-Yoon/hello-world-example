@@ -48,9 +48,9 @@ docker.withRegistry('', 'DockerHub') {
     
  
     //stage "Building Container"
-    echo "Building nginx with docker.build(${maintainer_name}/${container_name}:${build_tag})"
-    container = docker.build("${container_name}:'0.1'", 'nginx')
-    //container = 'nginx'
+    //echo "Building nginx with docker.build(${maintainer_name}/${container_name}:${build_tag})"
+    //container = docker.build("${container_name}:'0.1'", 'nginx')
+    container = 'nginx'
     
     // add more tests
     
