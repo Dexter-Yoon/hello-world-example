@@ -1,5 +1,5 @@
 environment {
-	Docker_Cred = 'DockerHub'
+	Docker_Cred = "DockerHub"
 	GIT_BUSINESS_CD = 'master'
 	GITLAB_CREDENTIAL_ID = 'superuser'
 	IMAGE_REGISTRY = '192.168.56.100:5000'
@@ -41,7 +41,7 @@ stage('2. Clone sources with SCM Step Plugin') {
 }
 
 stage 'Building nginx Container for Docker Hub'
-docker.withRegistry('', ${Docker_Cred}) {
+docker.withRegistry('', '${Docker_Cred}') {
     
     // Set up the container to build
     maintainer_name = "Dexter-Yoon"
