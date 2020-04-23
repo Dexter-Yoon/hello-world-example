@@ -43,12 +43,13 @@ stage 'Building nginx Container for Docker Hub'
 docker.withRegistry('https://index.docker.io/v1/', 'DockerHub') {
     
     // Set up the container to build
-    maintainer_name = "jayjohnson"
-    container_name = "django-nginx"
+    // maintainer_name = "jayjohnson" git 사용자 계정
+    container_name = "nginx"
  
     stage "Building Container"
-    echo "Building nginx with docker.build(${maintainer_name}/${container_name}:${build_tag})"
-    container = docker.build("${maintainer_name}/${container_name}:${build_tag}", 'nginx')
+    //echo "Building nginx with docker.build(${maintainer_name}/${container_name}:${build_tag})"
+    echo "Building nginx with docker.build(${container_name}:${build_tag})"
+    container = docker.build("${container_name}:${build_tag}", 'nginx')
    
     // add more tests
     
